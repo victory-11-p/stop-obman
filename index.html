@@ -1,132 +1,105 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#0f172a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>СТОП-ОБМАН | Защита 24/7</title>
-    <link rel="manifest" id="pwa-manifest">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle'>🛡️</text></svg>">
-    <style>
-        :root {
-            --bg: #f1f5f9;
-            --card: #ffffff;
-            --text: #0f172a;
-            --muted: #475569;
-            --danger: #dc2626;
-            --warning: #ea580c;
-            --primary: #2563eb;
-            --success: #16a34a;
-            --border: #e2e8f0;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.5; padding: 16px; max-width: 520px; margin: 0 auto; }
-        
-        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-        .badge { background: #dcfce7; color: #15803d; font-weight: 700; font-size: 11px; padding: 5px 11px; border-radius: 20px; letter-spacing: 0.3px; }
-        .share-top-btn { background: #dbeafe; color: var(--primary); border: none; padding: 6px 13px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; }
-
-        .header { text-align: center; padding-bottom: 18px; }
-        h1 { font-size: 25px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.4px; }
-        .subtitle { font-size: 14px; color: var(--muted); }
-
-        .sos-box { background: linear-gradient(135deg, #fff7ed, #ffedd5); border: 1.5px solid #fdba74; border-radius: 18px; padding: 15px; margin-bottom: 14px; text-align: center; box-shadow: 0 4px 12px rgba(234, 88, 12, 0.08); }
-        .sos-title { font-weight: 700; font-size: 14.5px; color: #9a3412; margin-bottom: 9px; }
-        .btn-main { display: block; width: 100%; background: var(--warning); color: #fff; text-decoration: none; font-weight: 700; padding: 13px; border-radius: 12px; border: none; font-size: 15px; cursor: pointer; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .btn-main:active { transform: scale(0.98); }
-        .sos-edit { font-size: 12px; color: #9a3412; text-decoration: underline; background: none; border: none; margin-top: 7px; cursor: pointer; }
-
-        .quiz-banner { background: linear-gradient(135deg, #1d4ed8, #0f172a); color: #fff; border-radius: 18px; padding: 17px; margin-bottom: 18px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25); }
-        .quiz-banner:active { transform: scale(0.98); }
-        .quiz-banner h2 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
-        .quiz-banner p { font-size: 12.5px; opacity: 0.85; }
-
-        .section-label { font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--muted); letter-spacing: 0.7px; margin: 20px 0 9px 4px; }
-
-        .grid { display: flex; flex-direction: column; gap: 10px; }
-        .card-btn { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 15px; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: transform 0.1s, box-shadow 0.1s; }
-        .card-btn:active { transform: scale(0.98); }
-        .icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: #f8fafc; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; border: 1px solid #f1f5f9; }
-        .card-title { font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 2px; line-height: 1.25; }
-        .card-desc { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
-
-        .screen { display: none; animation: fadeIn 0.2s ease; }
-        .screen.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-        .back-btn { background: #fff; border: 1px solid var(--border); color: var(--primary); font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 10px; margin-bottom: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
-        .step-card { background: var(--card); border-radius: 18px; padding: 20px; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06); margin-bottom: 16px; }
-        .screen-title { font-size: 20px; font-weight: 800; margin-bottom: 12px; line-height: 1.25; }
-        .alert-banner { background: #fef2f2; color: #b91c1c; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 13.5px; margin-bottom: 16px; border-left: 4px solid var(--danger); }
-        .info-banner { background: #eff6ff; color: #1e40af; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 13.5px; margin-bottom: 16px; border-left: 4px solid var(--primary); }
-        
-        .step-list { list-style: none; display: flex; flex-direction: column; gap: 15px; }
-        .step-item { display: flex; gap: 12px; align-items: flex-start; }
-        .step-num { background: var(--primary); color: #fff; font-weight: 700; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
-        .step-num.danger { background: var(--danger); }
-        .step-text strong { display: block; font-size: 14.5px; margin-bottom: 3px; }
-        .step-text span { font-size: 13px; color: var(--muted); display: block; }
-
-        .phone-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; }
-        .phone-btn { background: #f0fdf4; color: var(--success); border: 1px solid #bbf7d0; padding: 11px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 700; font-size: 13px; }
-
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
-        .form-control { width: 100%; padding: 11px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; background: #f8fafc; }
-        .doc-output { width: 100%; height: 220px; padding: 12px; border: 1px solid var(--primary); border-radius: 10px; font-size: 12.5px; background: #eff6ff; margin-top: 12px; font-family: monospace; white-space: pre-wrap; }
-
-        .ext-link { display: block; padding: 13px; background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); margin-bottom: 10px; }
-        .ext-link strong { color: var(--primary); display: block; font-size: 14px; margin-bottom: 2px; }
-        .ext-link span { font-size: 12px; color: var(--muted); display: block; }
-
-        .quiz-q { font-size: 17px; font-weight: 700; margin-bottom: 18px; min-height: 54px; }
-        .quiz-progress { font-size: 12px; color: var(--primary); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
-        .quiz-btns { display: flex; flex-direction: column; gap: 10px; }
-        .q-btn { padding: 15px; border-radius: 12px; border: 1.5px solid var(--border); background: #f8fafc; font-size: 15px; font-weight: 700; cursor: pointer; text-align: left; }
-        .q-btn:active { background: #dbeafe; border-color: var(--primary); }
-        .result-box { padding: 16px; border-radius: 14px; margin-bottom: 16px; }
-        .res-high { background: #fef2f2; border: 2px solid var(--danger); color: #991b1b; }
-        .res-med { background: #fff7ed; border: 2px solid var(--warning); color: #9a3412; }
-        .res-low { background: #f0fdf4; border: 2px solid var(--success); color: #166534; }
-
-        .footer { text-align: center; font-size: 12px; color: var(--muted); margin-top: 28px; padding-bottom: 28px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>СТОП-ОБМАН | Защита 24/7</title>
+<style>
+:root{--bg:#f1f5f9;--card:#fff;--text:#0f172a;--muted:#475569;--danger:#dc2626;--warn:#ea580c;--prim:#2563eb;--ok:#16a34a;--brd:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.45;padding:16px;max-width:520px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.badge{background:#dcfce7;color:#15803d;font-weight:700;font-size:11px;padding:4px 10px;border-radius:20px}
+.sh-btn{background:#dbeafe;color:var(--prim);border:none;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer}
+.hdr{text-align:center;padding-bottom:16px}
+h1{font-size:24px;font-weight:800;margin-bottom:4px}
+.sub{font-size:13.5px;color:var(--muted)}
+.sos{background:#fff7ed;border:1.5px solid #fdba74;border-radius:16px;padding:14px;margin-bottom:12px;text-align:center}
+.sos-t{font-weight:700;font-size:14px;color:#9a3412;margin-bottom:8px}
+.btn{display:block;width:100%;background:var(--warn);color:#fff;font-weight:700;padding:13px;border-radius:12px;border:none;font-size:15px;cursor:pointer;text-align:center;text-decoration:none}
+.edit{font-size:12px;color:#9a3412;text-decoration:underline;background:none;border:none;margin-top:6px;cursor:pointer}
+.qban{background:linear-gradient(135deg,#1d4ed8,#0f172a);color:#fff;border-radius:16px;padding:16px;margin-bottom:16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.sec{font-size:11px;font-weight:800;text-transform:uppercase;color:var(--muted);letter-spacing:.6px;margin:18px 0 8px 4px}
+.grid{display:flex;flex-direction:column;gap:9px}
+.card{background:var(--card);border:1px solid var(--brd);border-radius:15px;padding:14px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px}
+.ico{width:42px;height:42px;border-radius:11px;background:#f8fafc;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ct{font-weight:700;font-size:14.5px;margin-bottom:2px}
+.cd{font-size:12px;color:var(--muted)}
+.scr{display:none}.scr.act{display:block}
+.back{background:#fff;border:1px solid var(--brd);color:var(--prim);font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;margin-bottom:12px;cursor:pointer}
+.box{background:var(--card);border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(0,0,0,.05);margin-bottom:16px}
+.alrt{background:#fef2f2;color:#b91c1c;padding:13px;border-radius:11px;font-weight:700;font-size:13.5px;margin-bottom:14px;border-left:4px solid var(--danger)}
+.st{display:flex;gap:11px;margin-bottom:13px}
+.num{background:var(--prim);color:#fff;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px}
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.ph{background:#f0fdf4;color:var(--ok);border:1px solid #bbf7d0;padding:10px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700;font-size:13px}
+.inp{width:100%;padding:10px;border:1px solid var(--brd);border-radius:10px;font-size:14px;margin:4px 0 11px;background:#f8fafc}
+.out{width:100%;height:190px;padding:10px;border:1px solid var(--prim);border-radius:10px;font-size:12px;background:#eff6ff;margin-top:10px}
+.lnk{display:block;padding:12px;background:#f8fafc;border:1px solid var(--brd);border-radius:11px;text-decoration:none;color:var(--text);margin-bottom:9px}
+.qbtn{width:100%;padding:14px;border-radius:11px;border:1.5px solid var(--brd);background:#f8fafc;font-size:15px;font-weight:700;cursor:pointer;text-align:left;margin-bottom:9px}
+.ftr{text-align:center;font-size:12px;color:var(--muted);margin:24px 0}
+</style>
 </head>
 <body>
+<div id="home" class="scr act">
+  <div class="top"><span class="badge">● Работает офлайн</span><button class="sh-btn" onclick="shareApp()">📤 Поделиться</button></div>
+  <div class="hdr"><h1>Стоп-Обман: Защита 24/7</h1><p class="sub">Остановитесь на 10 секунд. Выберите ситуацию — мы подскажем безопасный шаг.</p></div>
+  <div class="sos"><div class="sos-t">🛑 Сомневаетесь? Посоветуйтесь с близким</div><button class="btn" id="sosBtn" onclick="sosClick()">Настроить звонок близкому</button><button class="edit" id="sosEd" style="display:none" onclick="sosSet()">Изменить контакт</button></div>
+  <div class="qban" onclick="startQ()"><div><b style="font-size:15.5px">🔍 Тест: развод или нет? (15 сек)</b><div style="font-size:12px;opacity:.85">4 вопроса «Да/Нет» для оценки риска</div></div><b>→</b></div>
+  <div id="menu"></div>
+  <div class="ftr">Работает автономно без интернета • Данные никуда не передаются</div>
+</div>
+<div id="view" class="scr"><button class="back" onclick="go('home')">← На главную</button><div class="box" id="vBox"></div></div>
+<script>
+const DB=[
+{g:"1. Острые ситуации (звонки, коды, ссылки)",items:[
+{id:"call",i:"📞",t:"Звонят из Банка / МВД / ФСБ / Госуслуг",d:"Пугают кредитом, взломом или требуют «безопасный счет»",a:"Положите трубку! Сотрудники ФСБ, МВД, ЦБ и Госуслуг никогда не звонят по телефону и в мессенджерах.",s:[["Прервите разговор молча","Не спорьте с мошенником. Нажмите красную кнопку сброса."],["Никаких «безопасных счетов» нет","Ваши деньги в безопасности, пока вы сами не перевели их."],["Перезвоните в банк сами","Наберите номер с обратной стороны вашей карты вручную."]],p:1},
+{id:"code",i:"💬",t:"Просят код из СМС или пуш-уведомления",d:"«Курьер», «домофон», «почта», «поликлиника» или «оператор»",a:"Никому не называйте цифры! Даже если говорят, что это «код от домофона» или «посылки».",s:[["Остерегайтесь двухэтапного обмана","После кода «от доставки» звонят «из полиции» и пугают взломом Госуслуг. Это спектакль."],["Запретите показ экрана","Никогда не включайте трансляцию экрана в Telegram или WhatsApp."],["Проверьте Госуслуги сами","Откройте приложение «Госуслуги» → Профиль → Безопасность → Действия в системе."]]},
+{id:"link",i:"🔗",t:"Прислали ссылку, файл или просят в долг",d:"«Это ты на фото?», голосовое/видео от друга или файл .apk",a:"Не открывайте файлы .apk и не переходите по ссылкам «Это ты на видео?» или «Проголосуй».",s:[["Проверьте друга по обычной связи","Позвоните знакомому по обычному сотовому телефону, а не в мессенджере."],["Задайте личный вопрос","ИИ умеет подделывать голос и лицо. Спросите то, что знаете только вы вдвоем."],["Скачали файл? Включите «Авиарежим»","Это отрежет вирусу интернет и не даст украсть СМС от банков. Удалите файл."]]}
+]},
+{g:"2. Деньги, сделки, крипта и наличные",items:[
+{id:"inv",i:"📈",t:"Предлагают заработок, инвестиции или сделку",d:"Авито/Юла доставка, криптобиржи, «подработка на лайках»",a:"Никогда не переходите из Авито/Юлы в мессенджеры для оформления доставки и оплаты!",s:[["Фейковая «Безопасная сделка»","Для получения оплаты за товар нужен только номер карты. Если просят CVV — это фишинг."],["Лжеброкеры и криптоинвесторы","Если для вывода «прибыли» требуют оплатить налог или страховку — это мошенники."],["Заработок на лайках и выкупах","Сначала платят 300 ₽ для доверия, затем выманивают крупные суммы за «выкуп лотов»."]]},
+{id:"cash",i:"💼",t:"Просят снять наличные, продать авто или жилье",d:"Передача денег курьеру, «декларирование» или «гостайна»",a:"Госорганы никогда не просят продавать квартиры, брать кредиты или отдавать наличные курьерам!",s:[["Требование тайны — 100% обман","Если запрещают рассказывать родным и угрожают статьей за гостайну — кладите трубку."],["Никакого «декларирования купюр» нет","Слова про «инкассацию» и «помощь следствию» — стандартный сценарий запугивания."],["Поговорите с близким сейчас","Не садитесь в вызванное незнакомцами такси. Позвоните родным или зайдите в полицию."]]},
+{id:"cryp",i:"⚖️",t:"Пришли чужие деньги или заблокировали карту",d:"Памятка по «треугольникам» P2P, дропам и базе ЦБ (161-ФЗ)",a:"Осторожно: из-за чужих переводов можно случайно стать соучастником (дропом) и попасть в базу ЦБ.",s:[["Пришли неизвестные деньги","Не тратьте и не переводите их сами! Напишите в чат банка для официального возврата."],["Опасность P2P-обмена крипты","Принимайте переводы только с карты, имя владельца которой совпадает с аккаунтом на бирже."],["Не сдавайте карту «в аренду»","Передача карты за вознаграждение грозит блокировкой всех счетов и уголовной статьей."]]}
+]},
+{g:"3. Помощь пострадавшим и инструменты",items:[
+{id:"stol",i:"🚨",t:"Я уже перевёл деньги или назвал код!",d:"Чек-лист спасения средств в первые 15 минут",a:"Действуйте быстро! Каждая минута повышает шанс заблокировать деньги на счете получателя.",s:[["Нажмите спецкнопку в приложении банка","Откройте перевод → «Пожаловаться на мошенничество». Вы получите справку для полиции."],["Заблокируйте карты и вход в банк","Позвоните на горячую линию банка и сообщите о компрометации."],["Защитите Госуслуги и кредиты","Срочно смените пароль (или идите в МФЦ с паспортом) и проверьте кредитную историю."],["Подайте заявление в полицию (102/112)","Приложите справку из банка и скриншоты переписок, возьмите талон-уведомление."]],docBtn:1},
+{id:"doc",i:"📝",t:"Генератор заявления в полицию / банк",d:"Создайте готовый текст обращения за 1 минуту",custom:"doc"},
+{id:"tool",i:"🧰",t:"Проверить брокера / сайт и самозапрет",d:"Официальные базы ЦБ РФ, антивирусы и защита от кредитов",custom:"tool"}
+]}
+];
+const m=document.getElementById('menu');
+DB.forEach(sec=>{
+Используйте код с осторожностью.
+m.innerHTML+=<div class="sec">${sec.g}</div><div class="grid">+sec.items.map(x=><button class="card" onclick="openItem('${x.id}')" style="${x.id=='stol'?'border-color:#fecaca;background:#fef2f2':''}"><div class="ico">${x.i}</div><div><div class="ct" style="${x.id=='stol'?'color:var(--danger)':''}">${x.t}</div><div class="cd">${x.d}</div></div></button>).join('')+</div>;
+});
+function go(id){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('act'));document.getElementById(id).classList.add('act');window.scrollTo(0,0)}
+function openItem(id){
+let it; DB.forEach(g=>g.items.forEach(x=>{if(x.id==id)it=x}));
+const b=document.getElementById('vBox');
+if(it.custom=='doc'){
+b.innerHTML=<h2 style="margin-bottom:10px">Заявление в полицию</h2><p style="font-size:12.5px;color:var(--muted);margin-bottom:10px">Данные никуда не отправляются и остаются только на вашем телефоне.</p><input id="f1" class="inp" placeholder="Ваши ФИО полностью"><input id="f2" class="inp" placeholder="Телефон и адрес проживания"><input id="f3" class="inp" placeholder="Дата и время (напр. 22.11.2026 в 14:30)"><input id="f4" class="inp" placeholder="Сумма ущерба (в рублях)"><input id="f5" class="inp" placeholder="Кратко: с какого номера звонили и куда перевели"><button class="btn" style="background:var(--prim)" onclick="mkDoc()">Сформировать текст</button><div id="dRes" style="display:none"><textarea id="dTxt" class="out" readonly></textarea><button class="btn" style="background:var(--ok);margin-top:8px" onclick="cpDoc()">📋 Скопировать текст</button></div>;
+}else if(it.custom=='tool'){
+b.innerHTML=<h2 style="margin-bottom:12px">Проверка и профилактика</h2><a href="https://gosuslugi.ru" target="_blank" class="lnk"><b style="color:var(--prim)">🔒 Самозапрет на кредиты (Госуслуги)</b><div class="cd">Запрет на оформление кредитов на ваше имя</div></a><a href="https://cbr.ru" target="_blank" class="lnk"><b style="color:var(--prim)">🏦 Черный список Банка России</b><div class="cd">Проверка брокеров и инвестпроектов на нелегальность</div></a><a href="https://whois.ru" target="_blank" class="lnk"><b style="color:var(--prim)">🌐 Дата создания сайта (Whois)</b><div class="cd">Если сайт создан пару дней назад — это мошенники</div></a><a href="https://virustotal.com" target="_blank" class="lnk"><b style="color:var(--prim)">🛡️ Проверка ссылки/файла (VirusTotal)</b><div class="cd">Проверка по 70 антивирусам без запуска на телефоне</div></a>;
+}else{
+b.innerHTML=<h2 style="margin-bottom:10px">${it.t}</h2><div class="alrt">${it.a}</div>+it.s.map((st,i)=><div class="st"><div class="num" style="${it.id=='stol'?'background:var(--danger)':''}">${i+1}</div><div><b style="font-size:14.5px">${st[0]}</b><div style="font-size:13px;color:var(--muted)">${st[1]}</div></div></div>).join('')+(it.p?<div class="phones"><a href="tel:900" class="ph">Сбер: 900</a><a href="tel:1000" class="ph">ВТБ: 1000</a><a href="tel:88005557778" class="ph">Т-Банк</a><a href="tel:112" class="ph">112</a></div>:'')+(it.docBtn?<button class="btn" style="background:var(--prim);margin-top:12px" onclick="openItem('doc')">📝 Составить заявление</button>:'');
+}
+go('view');
+}
+function mkDoc(){
+const v=i=>document.getElementById(i).value.trim()||'[заполнить]';
+document.getElementById('dTxt').value=В Отдел полиции МВД России\nот ${v('f1')}\nпроживающего(ей): ${v('f2')}\n\nЗАЯВЛЕНИЕ О МОШЕННИЧЕСТВЕ\n\n${v('f3')} неустановленные лица путем обмана похитили у меня ${v('f4')} руб.\nОбстоятельства: ${v('f5')}.\n\nПрошу провести проверку по ст. 141 УПК РФ и привлечь виновных по ст. 159 УК РФ. Об ответственности по ст. 306 УК РФ предупрежден(а).\n\nДата: __________ Подпись: __________ / ${v('f1')} /;
+document.getElementById('dRes').style.display='block';
+}
+function cpDoc(){const t=document.getElementById('dTxt');t.select();navigator.clipboard.writeText(t.value);alert('Текст скопирован!')}
+const QS=["Вас торопят, пугают потерей денег/уголовным делом или обещают легкий доход?","Просят код из СМС, данные карты (CVV) или перейти по присланной ссылке?","Связались через мессенджер (Telegram/WhatsApp) от имени банка, МВД или покупателя?","Просят сохранить всё в тайне от близких или перевести деньги на «безопасный счет»?"];
+let qi=0,qy=0;
+function startQ(){qi=0;qy=0;rndQ();go('view')}
+function rndQ(){document.getElementById('vBox').innerHTML=<div style="font-size:12px;color:var(--prim);font-weight:700;margin-bottom:8px">ВОПРОС ${qi+1} ИЗ 4</div><h3 style="margin-bottom:16px">${QS[qi]}</h3><button class="qbtn" onclick="ansQ(1)">✅ Да, так и есть</button><button class="qbtn" onclick="ansQ(0)">❌ Нет</button>}
+function ansQ(y){qy+=y;qi++;if(qi<4)rndQ();else document.getElementById('vBox').innerHTML=<div class="alrt" style="${qy<2?'background:#f0fdf4;color:#166534;border-color:var(--ok)':''}"><h3>${qy>=2?'🚨 ЭТО МОШЕННИКИ (99%)':qy==1?'⚠️ БУДЬТЕ ОСТОРОЖНЫ':'✅ ЯВНЫХ ПРИЗНАКОВ НЕТ'}</h3><p style="margin-top:6px;font-weight:400">${qy>=2?'Совпало '+qy+' из 4 признаков обмана. Немедленно кладите трубку и ничего не переводите!':'Возьмите паузу и перепроверьте информацию через официальный номер.'}</p></div><button class="btn" onclick="go('home')">Вернуться к инструкциям</button>}
+function shareApp(){if(navigator.share)navigator.share({title:'Стоп-Обман',url:location.href});else{navigator.clipboard.writeText(location.href);alert('Ссылка скопирована!')}}
+function sosLoad(){const n=localStorage.getItem('sn'),p=localStorage.getItem('sp'),b=document.getElementById('sosBtn'),e=document.getElementById('sosEd');if(n&&p){b.textContent='📞 Позвонить: '+n;b.style.background='var(--ok)';e.style.display='inline-block'}else{b.textContent='Настроить звонок близкому';b.style.background='var(--warn)';e.style.display='none'}}
+function sosSet(){const n=prompt('Имя близкого (Сын, Жена, Друг):');if(!n)return;const p=prompt('Номер телефона (+7...):');if(!p)return;localStorage.setItem('sn',n);localStorage.setItem('sp',p);sosLoad()}
+function sosClick(){const p=localStorage.getItem('sp');if(p)location.href='tel:'+p;else sosSet()}
+sosLoad();
 
-    <div id="home" class="screen active">
-        <div class="top-bar">
-            <span class="badge">● Работает офлайн</span>
-            <button class="share-top-btn" onclick="shareApp()">📤 Поделиться</button>
-        </div>
-
-        <div class="header">
-            <h1>Стоп-Обман: Защита 24/7</h1>
-            <p class="subtitle">Остановитесь на 10 секунд. Выберите ситуацию — мы подскажем безопасный шаг.</p>
-        </div>
-
-        <div class="sos-box">
-            <div class="sos-title">🛑 Сомневаетесь? Посоветуйтесь с близким</div>
-            <button class="btn-main" id="sosActionBtn" onclick="handleSosClick()">Настроить звонок доверенному лицу</button>
-            <button class="sos-edit" id="sosEditBtn" style="display:none;" onclick="setupSosContact()">Изменить контакт</button>
-        </div>
-
-        <div class="quiz-banner" onclick="startQuiz()">
-            <div>
-                <h2>🔍 Тест: развод или нет? (15 сек)</h2>
-                <p>4 вопроса «Да/Нет» для быстрой оценки риска</p>
-            </div>
-            <div style="font-size:22px;font-weight:700;">→</div>
-        </div>
-
-        <div class="section-label">1. Острые ситуации (звонки, коды, ссылки)</div>
-        <div class="grid">
-            <button class="card-btn" onclick="openScreen('call')">
-                <div class="icon-wrap">📞</div>
-                <div>
-                    <div class="card-title">Звонят из Банка / МВД / ФСБ / Госуслуг</div>
-                    <div class="card-desc">Пугают кредитом, взломом или требуют «безопасный счет»</div>
-                </div>
-            </button>
