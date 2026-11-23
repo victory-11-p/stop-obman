@@ -228,6 +228,16 @@ function copyPromo(){
   if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){alert('Текст скопирован! Вставьте его в WhatsApp или Telegram.');});}
   else{prompt('Скопируйте текст вручную:',txt);}
 }
+(function(){
+  var c=document.createElement('canvas');c.width=c.height=512;
+  var ctx=c.getContext('2d'),img=new Image();
+  img.onload=function(){
+    ctx.drawImage(img,0,0,512,512);
+    var png=c.toDataURL('image/png');
+    var l=document.createElement('link');l.rel='apple-touch-icon';l.href=png;document.head.appendChild(l);
+  };
+  img.src='icon.svg';
+})();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
 </script>
 </body>
