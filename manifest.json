@@ -2,17 +2,17 @@
   "name": "Стоп-Обман: Защита 24/7",
   "short_name": "Стоп-Обман",
   "description": "Офлайн-помощник по защите от телефонных и интернет-мошенников",
-  "start_url": "/stop-obman/",
-  "scope": "/stop-obman/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f1f5f9",
   "theme_color": "#2563eb",
   "icons": [
     {
       "src": "icon.svg",
-      "sizes": "any",
+      "sizes": "192x192 512x512",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
