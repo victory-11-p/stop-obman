@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>СТОП-ОБМАН | Защита 24/7</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#2563eb">
+
 <style>
 :root{--bg:#f1f5f9;--card:#fff;--text:#0f172a;--muted:#475569;--danger:#dc2626;--warn:#ea580c;--prim:#2563eb;--ok:#16a34a;--brd:#e2e8f0}
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
@@ -170,6 +174,7 @@ function sosLoad(){var n=localStorage.getItem('sn'),p=localStorage.getItem('sp')
 function sosSet(){var n=prompt('Имя близкого (Сын, Жена, Друг):');if(!n)return;var p=prompt('Номер телефона (+7...):');if(!p)return;localStorage.setItem('sn',n);localStorage.setItem('sp',p);sosLoad()}
 document.getElementById('sosBtn').onclick=function(){var p=localStorage.getItem('sp');if(p)location.href='tel:'+p;else sosSet()};
 document.getElementById('sosEd').onclick=sosSet;sosLoad();
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
 </script>
 </body>
 </html>
