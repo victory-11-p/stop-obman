@@ -42,282 +42,163 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 </style>
 </head>
 <body>
-
 <div id="home" class="scr act">
-  <div class="top">
-    <span class="badge">● Работает офлайн</span>
-    <button type="button" class="sh-btn" id="btnShare">📤 Поделиться</button>
-  </div>
-  <div class="hdr">
-    <h1>Стоп-Обман: Защита 24/7</h1>
-    <p class="sub">Остановитесь на 10 секунд. Выберите ситуацию — мы подскажем безопасный шаг.</p>
-  </div>
-
-  <div class="sos">
-    <div class="sos-t">🛑 Сомневаетесь? Посоветуйтесь с близким</div>
-    <button type="button" class="btn" id="sosBtn">Настроить звонок близкому</button>
-    <button type="button" class="edit" id="sosEd" style="display:none">Изменить контакт</button>
-  </div>
-
-  <div class="qban" id="btnQuiz">
-    <div>
-      <b style="font-size:15.5px">🔍 Тест: развод или нет? (15 сек)</b>
-      <div style="font-size:12px;opacity:.85">4 вопроса «Да/Нет» для оценки риска</div>
-    </div>
-    <b>→</b>
-  </div>
-
+  <div class="top"><span class="badge">● Работает офлайн</span><button type="button" class="sh-btn" id="btnShare">📤 Поделиться</button></div>
+  <div class="hdr"><h1>Стоп-Обман: Защита 24/7</h1><p class="sub">Остановитесь на 10 секунд. Выберите ситуацию — мы подскажем безопасный шаг.</p></div>
+  <div class="sos"><div class="sos-t">🛑 Сомневаетесь? Посоветуйтесь с близким</div><button type="button" class="btn" id="sosBtn">Настроить звонок близкому</button><button type="button" class="edit" id="sosEd" style="display:none">Изменить контакт</button></div>
+  <div class="qban" id="btnQuiz"><div><b style="font-size:15.5px">🔍 Тест: развод или нет? (15 сек)</b><div style="font-size:12px;opacity:.85">4 вопроса «Да/Нет» для оценки риска</div></div><b>→</b></div>
   <div class="sec">1. Острые ситуации (звонки, коды, ссылки)</div>
   <div class="grid">
-    <button type="button" class="card" data-go="s_call">
-      <div class="ico">📞</div>
-      <div><div class="ct">Звонят из Банка / МВД / ФСБ / Госуслуг</div><div class="cd">Пугают кредитом, взломом или требуют «безопасный счет»</div></div>
-    </button>
-    <button type="button" class="card" data-go="s_code">
-      <div class="ico">💬</div>
-      <div><div class="ct">Просят код из СМС или пуш-уведомления</div><div class="cd">«Курьер», «домофон», «почта», «поликлиника» или «оператор»</div></div>
-    </button>
-    <button type="button" class="card" data-go="s_link">
-      <div class="ico">🔗</div>
-      <div><div class="ct">Прислали ссылку, файл или просят в долг</div><div class="cd">«Это ты на фото?», голосовое/видео от друга или файл .apk</div></div>
-    </button>
+    <button type="button" class="card" data-go="s_call"><div class="ico">📞</div><div><div class="ct">Звонят из Банка / МВД / ФСБ / Госуслуг</div><div class="cd">Пугают кредитом, взломом или требуют «безопасный счет»</div></div></button>
+    <button type="button" class="card" data-go="s_code"><div class="ico">💬</div><div><div class="ct">Просят код из СМС или пуш-уведомления</div><div class="cd">«Курьер», «домофон», «почта», «поликлиника» или «оператор»</div></div></button>
+    <button type="button" class="card" data-go="s_link"><div class="ico">🔗</div><div><div class="ct">Прислали ссылку, файл или просят в долг</div><div class="cd">«Это ты на фото?», голосовое/видео от друга или файл .apk</div></div></button>
   </div>
-
   <div class="sec">2. Деньги, сделки, крипта и наличные</div>
   <div class="grid">
-    <button type="button" class="card" data-go="s_inv">
-      <div class="ico">📈</div>
-      <div><div class="ct">Предлагают заработок, инвестиции или сделку</div><div class="cd">Авито/Юла доставка, криптобиржи, «подработка на лайках»</div></div>
-    </button>
-    <button type="button" class="card" data-go="s_cash">
-      <div class="ico">💼</div>
-      <div><div class="ct">Просят снять наличные, продать авто или жилье</div><div class="cd">Передача денег курьеру, «декларирование» или «гостайна»</div></div>
-    </button>
-    <button type="button" class="card" data-go="s_cryp">
-      <div class="ico">⚖️</div>
-      <div><div class="ct">Пришли чужие деньги или заблокировали карту</div><div class="cd">Памятка по «треугольникам» P2P, дропам и базе ЦБ (161-ФЗ)</div></div>
-    </button>
+    <button type="button" class="card" data-go="s_inv"><div class="ico">📈</div><div><div class="ct">Предлагают заработок, инвестиции или сделку</div><div class="cd">Авито/Юла доставка, криптобиржи, «подработка на лайках»</div></div></button>
+    <button type="button" class="card" data-go="s_cash"><div class="ico">💼</div><div><div class="ct">Просят снять наличные, продать авто или жилье</div><div class="cd">Передача денег курьеру, «декларирование» или «гостайна»</div></div></button>
+    <button type="button" class="card" data-go="s_cryp"><div class="ico">⚖️</div><div><div class="ct">Пришли чужие деньги или заблокировали карту</div><div class="cd">Памятка по «треугольникам» P2P, дропам и базе ЦБ (161-ФЗ)</div></div></button>
   </div>
-
   <div class="sec">3. Помощь пострадавшим и инструменты</div>
   <div class="grid">
-    <button type="button" class="card" data-go="s_stol" style="border-color:#fecaca;background:#fef2f2">
-      <div class="ico">🚨</div>
-      <div><div class="ct" style="color:var(--danger)">Я уже перевёл деньги или назвал код!</div><div class="cd">Чек-лист спасения средств в первые 15 минут</div></div>
-    </button>
-    <button type="button" class="card" data-go="s_doc">
-      <div class="ico">📝</div>
-      <div><div class="ct">Генератор заявления в полицию / банк</div><div class="cd">Создайте готовый текст обращения за 1 минуту</div></div>
-    </button>
-    <button type="button" class="card" data-go="s_tool">
-      <div class="ico">🧰</div>
-      <div><div class="ct">Проверить брокера / сайт и самозапрет</div><div class="cd">Официальные базы ЦБ РФ, антивирусы и защита от кредитов</div></div>
-    </button>
+    <button type="button" class="card" data-go="s_stol" style="border-color:#fecaca;background:#fef2f2"><div class="ico">🚨</div><div><div class="ct" style="color:var(--danger)">Я уже перевёл деньги или назвал код!</div><div class="cd">Чек-лист спасения средств в первые 15 минут</div></div></button>
+    <button type="button" class="card" data-go="s_doc"><div class="ico">📝</div><div><div class="ct">Генератор заявления в полицию / банк</div><div class="cd">Создайте готовый текст обращения за 1 минуту</div></div></button>
+    <button type="button" class="card" data-go="s_tool"><div class="ico">🧰</div><div><div class="ct">Проверить брокера / сайт и самозапрет</div><div class="cd">Официальные базы ЦБ РФ, антивирусы и защита от кредитов</div></div></button>
   </div>
-
   <div class="ftr">Работает автономно без интернета • Данные никуда не передаются</div>
 </div>
-
-<!-- ЭКРАН ТЕСТА -->
-<div id="s_quiz" class="scr">
+  <div id="s_quiz" class="scr">
   <button type="button" class="back" data-go="home">← На главную</button>
   <div class="box">
-    <div id="qBox">
-      <div id="qProg" style="font-size:12px;color:var(--prim);font-weight:700;margin-bottom:8px">ВОПРОС 1 ИЗ 4</div>
-      <h3 id="qText" style="margin-bottom:16px"></h3>
-      <button type="button" class="qbtn" id="qYes">✅ Да, так и есть</button>
-      <button type="button" class="qbtn" id="qNo">❌ Нет</button>
-    </div>
-    <div id="qRes" style="display:none">
-      <div id="qAlrt" class="alrt">
-        <h3 id="qTitle"></h3>
-        <p id="qDesc" style="margin-top:6px;font-weight:400"></p>
-      </div>
-      <button type="button" class="btn" data-go="home">Вернуться к инструкциям</button>
-    </div>
+    <div id="qBox"><div id="qProg" style="font-size:12px;color:var(--prim);font-weight:700;margin-bottom:8px">ВОПРОС 1 ИЗ 4</div><h3 id="qText" style="margin-bottom:16px"></h3><button type="button" class="qbtn" id="qYes">✅ Да, так и есть</button><button type="button" class="qbtn" id="qNo">❌ Нет</button></div>
+    <div id="qRes" style="display:none"><div id="qAlrt" class="alrt"><h3 id="qTitle"></h3><p id="qDesc" style="margin-top:6px;font-weight:400"></p></div><button type="button" class="btn" data-go="home">Вернуться к инструкциям</button></div>
   </div>
 </div>
-
-<!-- ЭКРАН 1: ЗВОНОК -->
 <div id="s_call" class="scr">
   <button type="button" class="back" data-go="home">← На главную</button>
-  <div class="box">
-    <h2 style="margin-bottom:10px">Звонок из «ведомств» или банка</h2>
-    <div class="alrt">Положите трубку! Сотрудники ФСБ, МВД, ЦБ и Госуслуг никогда не звонят по телефону и в мессенджерах.</div>
-    <div class="st"><div class="num">1</div><div><b>Прервите разговор молча</b><div class="cd">Не спорьте с мошенником. Нажмите красную кнопку сброса.</div></div></div>
-    <div class="st"><div class="num">2</div><div><b>Никаких «безопасных счетов» нет</b><div class="cd">Ваши деньги в безопасности, пока вы сами не перевели их.</div></div></div>
-    <div class="st"><div class="num">3</div><div><b>Перезвоните в банк сами</b><div class="cd">Наберите номер с обратной стороны вашей карты вручную.</div></div></div>
-    <div class="phones">
-      <a href="tel:900" class="ph">Сбер: 900</a>
-      <a href="tel:1000" class="ph">ВТБ: 1000</a>
-      <a href="tel:88005557778" class="ph">Т-Банк</a>
-      <a href="tel:112" class="ph">Экстренно: 112</a>
-    </div>
-  </div>
+  <div class="box"><h2 style="margin-bottom:10px">Звонок из «ведомств» или банка</h2><div class="alrt">Положите трубку! Сотрудники ФСБ, МВД, ЦБ и Госуслуг никогда не звонят по телефону и в мессенджерах.</div><div class="st"><div class="num">1</div><div><b>Прервите разговор молча</b><div class="cd">Не спорьте с мошенником. Нажмите красную кнопку сброса.</div></div></div><div class="st"><div class="num">2</div><div><b>Никаких «безопасных счетов» нет</b><div class="cd">Ваши деньги в безопасности, пока вы сами не перевели их.</div></div></div><div class="st"><div class="num">3</div><div><b>Перезвоните в банк сами</b><div class="cd">Наберите номер с обратной стороны вашей карты вручную.</div></div></div><div class="phones"><a href="tel:900" class="ph">Сбер: 900</a><a href="tel:1000" class="ph">ВТБ: 1000</a><a href="tel:88005557778" class="ph">Т-Банк</a><a href="tel:112" class="ph">Экстренно: 112</a></div></div>
 </div>
-
-<!-- ЭКРАН 2: КОД ИЗ СМС -->
 <div id="s_code" class="scr">
   <button type="button" class="back" data-go="home">← На главную</button>
-  <div class="box">
-    <h2 style="margin-bottom:10px">Просят код из СМС / Пуш</h2>
-    <div class="alrt">Никому не называйте цифры! Даже если говорят, что это «код от домофона» или «посылки».</div>
-    1Остерегайтесь двухэтапного обманаПосле кода «от доставки» звонят «из полиции» и пугают взломом Госуслуг. Это спектакль.
-2Запретите показ экранаНикогда не включайте трансляцию экрана в Telegram или WhatsApp.
-3Проверьте Госуслуги самиОткройте приложение «Госуслуги» → Профиль → Безопасность → Действия в системе.
-
-← На главную
-
-Ссылки, вирусы и дипфейки
-Не открывайте файлы .apk и не переходите по ссылкам «Это ты на видео?» или «Проголосуй».
-1Проверьте друга по обычной связиПозвоните знакомому по обычному сотовому телефону, а не в мессенджере.
-2Задайте личный вопросИИ умеет подделывать голос и лицо. Спросите то, что знаете только вы вдвоем.
-3Скачали файл? Включите «Авиарежим»Это отрежет вирусу интернет и не даст украсть СМС от банков. Удалите файл.
-
-← На главную
-
-Инвестиции, заработок и сделки
-Никогда не переходите из Авито/Юлы в мессенджеры для оформления доставки и оплаты!
-1Фейковая «Безопасная сделка»Для получения оплаты за товар нужен только номер карты. Если просят CVV — это фишинг.
-2Лжеброкеры и криптоинвесторыЕсли для вывода «прибыли» требуют оплатить налог или страховку — это мошенники.
-3Заработок на лайках и выкупахСначала платят 300 ₽ для доверия, затем выманивают крупные суммы за «выкуп лотов».
-
-← На главную
-
-Наличные, курьеры и имущество
-Госорганы никогда не просят продавать квартиры, брать кредиты или отдавать наличные курьерам!
-1Требование тайны — 100% обманЕсли запрещают рассказывать родным и угрожают статьей за гостайну — кладите трубку.
-2Никакого «декларирования купюр» нетСлова про «инкассацию» и «помощь следствию» — стандартный сценарий запугивания.
-3Поговорите с близким сейчасНе садитесь в вызванное незнакомцами такси. Позвоните родным или зайдите в полицию.
-
-← На главную
-
-Чужие переводы и криптообмен
-Осторожно: из-за чужих переводов можно случайно стать соучастником (дропом) и попасть в базу ЦБ.
-1Пришли неизвестные деньгиНе тратьте и не переводите их сами! Напишите в чат банка для официального возврата.
-2Опасность P2P-обмена криптыПринимайте переводы только с карты, имя владельца которой совпадает с аккаунтом на бирже.
-3Не сдавайте карту «в аренду»Передача карты за вознаграждение грозит блокировкой всех счетов и уголовной статьей.
-
-← На главную
-
-План действий: первые 15 минут
-Действуйте быстро! Каждая минута повышает шанс заблокировать деньги на счете получателя.
-1Нажмите спецкнопку в приложении банкаОткройте перевод → «Пожаловаться на мошенничество». Вы получите справку для полиции.
-2Заблокируйте карты и вход в банкПозвоните на горячую линию банка и сообщите о компрометации.
-3Защитите Госуслуги и кредитыСрочно смените пароль (или идите в МФЦ с паспортом) и проверьте кредитную историю.
-4Подайте заявление в полицию (102/112)Приложите справку из банка и скриншоты переписок, возьмите талон-уведомление.
-📝 Составить текст заявления
-
-← На главную
-
-Заявление в полицию
-Данные остаются только на вашем телефоне.
-
-
-
-
-
-Сформировать текст
-
-
-📋 Скопировать текст
-
-
-← На главную
-
-Проверка и профилактика
-🔒 Самозапрет на кредиты (Госуслуги)Запрет на оформление кредитов на ваше имя
-🏦 Черный список Банка РоссииПроверка брокеров и инвестпроектов на нелегальность
-🌐 Дата создания сайта (Whois)Если сайт создан пару дней назад — это мошенники
-🛡️ Проверка ссылки/файла (VirusTotal)Проверка по 70 антивирусам без запуска на телефоне
-
-function go(id) {
-var list = document.querySelectorAll('.scr');
-for (var i = 0; i < list.length; i++) {
-list[i].classList.remove('act');
-}
-document.getElementById(id).classList.add('act');
-window.scrollTo(0, 0);
-}
-var navBtns = document.querySelectorAll('[data-go]');
-for (var i = 0; i < navBtns.length; i++) {
-navBtns[i].onclick = function() {
-go(this.getAttribute('data-go'));
-};
-}
-var QS = [
-"Вас торопят, пугают потерей денег/уголовным делом или обещают легкий доход?",
-"Просят код из СМС, данные карты (CVV) или перейти по присланной ссылке?",
-"Связались через мессенджер (Telegram/WhatsApp) от имени банка, МВД или покупателя?",
-"Просят сохранить всё в тайне от близких или перевести деньги на «безопасный счет»?"
+  <div class="box"><h2 style="margin-bottom:10px">Просят код из СМС / Пуш</h2><div class="alrt">Никому не называйте цифры! Даже если говорят, что это «код от домофона» или «посылки».</div><div class="st"><div class="num">1</div><div><b>Остерегайтесь двухэтапного обмана</b><div class="cd">После кода «от доставки» звонят «из полиции» и пугают взломом Госуслуг. Это спектакль.</div></div></div><div class="st"><div class="num">2</div><div><b>Запретите показ экрана</b><div class="cd">Никогда не включайте трансляцию экрана в Telegram или WhatsApp.</div></div></div><div class="st"><div class="num">3</div><div><b>Проверьте Госуслуги сами</b><div class="cd">Откройте приложение «Госуслуги» → Профиль → Безопасность → Действия в системе.</div></div></div></div>
+</div>
+<div id="s_link" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:10px">Ссылки, вирусы и дипфейки</h2><div class="alrt">Не открывайте файлы .apk и не переходите по ссылкам «Это ты на видео?» или «Проголосуй».</div><div class="st"><div class="num">1</div><div><b>Проверьте друга по обычной связи</b><div class="cd">Позвоните знакомому по обычному сотовому телефону, а не в мессенджере.</div></div></div><div class="st"><div class="num">2</div><div><b>Задайте личный вопрос</b><div class="cd">ИИ умеет подделывать голос и лицо. Спросите то, что знаете только вы вдвоем.</div></div></div><div class="st"><div class="num">3</div><div><b>Скачали файл? Включите «Авиарежим»</b><div class="cd">Это отрежет вирусу интернет и не даст украсть СМС от банков. Удалите файл.</div></div></div></div>
+</div>
+<div id="s_inv" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:10px">Инвестиции, заработок и сделки</h2><div class="alrt">Никогда не переходите из Авито/Юлы в мессенджеры для оформления доставки и оплаты!</div><div class="st"><div class="num">1</div><div><b>Фейковая «Безопасная сделка»</b><div class="cd">Для получения оплаты за товар нужен только номер карты. Если просят CVV — это фишинг.</div></div></div><div class="st"><div class="num">2</div><div><b>Лжеброкеры и криптоинвесторы</b><div class="cd">Если для вывода «прибыли» требуют оплатить налог или страховку — это мошенники.</div></div></div><div class="st"><div class="num">3</div><div><b>Заработок на лайках и выкупах</b><div class="cd">Сначала платят 300 ₽ для доверия, затем выманивают крупные суммы за «выкуп лотов».</div></div></div></div>
+</div>
+<div id="s_cash" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:10px">Наличные, курьеры и имущество</h2><div class="alrt">Госорганы никогда не просят продавать квартиры, брать кредиты или отдавать наличные курьерам!</div><div class="st"><div class="num">1</div><div><b>Требование тайны — 100% обман</b><div class="cd">Если запрещают рассказывать родным и угрожают статьей за гостайну — кладите трубку.</div></div></div><div class="st"><div class="num">2</div><div><b>Никакого «декларирования купюр» нет</b><div class="cd">Слова про «инкассацию» и «помощь следствию» — стандартный сценарий запугивания.</div></div></div><div class="st"><div class="num">3</div><div><b>Поговорите с близким сейчас</b><div class="cd">Не садитесь в вызванное незнакомцами такси. Позвоните родным или зайдите в полицию.</div></div></div></div>
+</div>
+<div id="s_cryp" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:10px">Чужие переводы и криптообмен</h2><div class="alrt">Осторожно: из-за чужих переводов можно случайно стать соучастником (дропом) и попасть в базу ЦБ.</div><div class="st"><div class="num">1</div><div><b>Пришли неизвестные деньги</b><div class="cd">Не тратьте и не переводите их сами! Напишите в чат банка для официального возврата.</div></div></div><div class="st"><div class="num">2</div><div><b>Опасность P2P-обмена крипты</b><div class="cd">Принимайте переводы только с карты, имя владельца которой совпадает с аккаунтом на бирже.</div></div></div><div class="st"><div class="num">3</div><div><b>Не сдавайте карту «в аренду»</b><div class="cd">Передача карты за вознаграждение грозит блокировкой всех счетов и уголовной статьей.</div></div></div></div>
+</div>
+<div id="s_stol" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:10px;color:var(--danger)">План действий: первые 15 минут</h2><div class="alrt">Действуйте быстро! Каждая минута повышает шанс заблокировать деньги на счете получателя.</div><div class="st"><div class="num" style="background:var(--danger)">1</div><div><b>Нажмите спецкнопку в приложении банка</b><div class="cd">Откройте перевод → «Пожаловаться на мошенничество». Вы получите справку для полиции.</div></div></div><div class="st"><div class="num" style="background:var(--danger)">2</div><div><b>Заблокируйте карты и вход в банк</b><div class="cd">Позвоните на горячую линию банка и сообщите о компрометации.</div></div></div><div class="st"><div class="num" style="background:var(--danger)">3</div><div><b>Защитите Госуслуги и кредиты</b><div class="cd">Срочно смените пароль (или идите в МФЦ с паспортом) и проверьте кредитную историю.</div></div></div><div class="st"><div class="num" style="background:var(--danger)">4</div><div><b>Подайте заявление в полицию (102/112)</b><div class="cd">Приложите справку из банка и скриншоты переписок, возьмите талон-уведомление.</div></div></div><button type="button" class="btn" style="background:var(--prim);margin-top:12px" data-go="s_doc">📝 Составить текст заявления</button></div>
+</div>
+<div id="s_doc" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:10px">Заявление в полицию</h2><p style="font-size:12.5px;color:var(--muted);margin-bottom:10px">Данные остаются только на вашем телефоне.</p><input id="f1" class="inp" placeholder="Ваши ФИО полностью"><input id="f2" class="inp" placeholder="Телефон и адрес проживания"><input id="f3" class="inp" placeholder="Дата и время (напр. 22.11.2026 в 14:30)"><input id="f4" class="inp" placeholder="Сумма ущерба (в рублях)"><input id="f5" class="inp" placeholder="Кратко: с какого номера звонили и куда перевели"><button type="button" class="btn" style="background:var(--prim)" id="btnMkDoc">Сформировать текст</button><div id="dRes" style="display:none"><textarea id="dTxt" class="out" readonly></textarea><button type="button" class="btn" style="background:var(--ok);margin-top:8px" id="btnCpDoc">📋 Скопировать текст</button></div></div>
+</div>
+<div id="s_tool" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box"><h2 style="margin-bottom:12px">Проверка и профилактика</h2><a href="https://gosuslugi.ru" target="_blank" class="lnk"><b style="color:var(--prim)">🔒 Самозапрет на кредиты (Госуслуги)</b><div class="cd">Запрет на оформление кредитов на ваше имя</div></a><a href="https://cbr.ru" target="_blank" class="lnk"><b style="color:var(--prim)">🏦 Черный список Банка России</b><div class="cd">Проверка брокеров и инвестпроектов на нелегальность</div></a><a href="https://whois.ru" target="_blank" class="lnk"><b style="color:var(--prim)">🌐 Дата создания сайта (Whois)</b><div class="cd">Если сайт создан пару дней назад — это мошенники</div></a><a href="https://virustotal.com" target="_blank" class="lnk"><b style="color:var(--prim)">🛡️ Проверка ссылки/файла (VirusTotal)</b><div class="cd">Проверка по 70 антивирусам без запуска на телефоне</div></a></div>
+</div>
+<script>
+function go(id){var l=document.querySelectorAll('.scr');for(var i=0;i<l.length;i++)l[i].classList.remove('act');document.getElementById(id).classList.add('act');window.scrollTo(0,0)}
+var nb=document.querySelectorAll('[data-go]');for(var i=0;i<nb.length;i++)nb[i].onclick=function(){go(this.getAttribute('data-go'))};
+  var QS = [
+  "Вас торопят, пугают потерей денег/уголовным делом или обещают легкий доход?",
+  "Просят код из СМС, данные карты (CVV) или перейти по присланной ссылке?",
+  "Связались через мессенджер (Telegram/WhatsApp) от имени банка, МВД или покупателя?",
+  "Просят сохранить всё в тайне от близких или перевести деньги на «безопасный счет»?"
 ];
 var qi = 0, qy = 0;
+
 function rndQ() {
-document.getElementById('qProg').textContent = 'ВОПРОС ' + (qi + 1) + ' ИЗ 4';
-document.getElementById('qText').textContent = QS[qi];
+  document.getElementById('qProg').textContent = 'ВОПРОС ' + (qi + 1) + ' ИЗ 4';
+  document.getElementById('qText').textContent = QS[qi];
 }
+
 document.getElementById('btnQuiz').onclick = function() {
-qi = 0; qy = 0;
-document.getElementById('qBox').style.display = 'block';
-document.getElementById('qRes').style.display = 'none';
-rndQ();
-go('s_quiz');
+  qi = 0; qy = 0;
+  document.getElementById('qBox').style.display = 'block';
+  document.getElementById('qRes').style.display = 'none';
+  rndQ();
+  go('s_quiz');
 };
+
 function ansQ(y) {
-qy += y; qi++;
-if (qi < 4) { rndQ(); return; }
-document.getElementById('qBox').style.display = 'none';
-document.getElementById('qRes').style.display = 'block';
-var al = document.getElementById('qAlrt');
-if (qy >= 2) {
-al.style.background = '#fef2f2'; al.style.color = '#b91c1c'; al.style.borderColor = '#dc2626';
-document.getElementById('qTitle').textContent = '🚨 ЭТО МОШЕННИКИ (99%)';
-document.getElementById('qDesc').textContent = 'Совпало ' + qy + ' из 4 признаков обмана. Немедленно кладите трубку!';
-} else if (qy === 1) {
-al.style.background = '#fff7ed'; al.style.color = '#9a3412'; al.style.borderColor = '#ea580c';
-document.getElementById('qTitle').textContent = '⚠️ БУДЬТЕ ОСТОРОЖНЫ';
-document.getElementById('qDesc').textContent = 'Есть 1 тревожный признак. Возьмите паузу и позвоните по официальному номеру.';
-} else {
-al.style.background = '#f0fdf4'; al.style.color = '#166534'; al.style.borderColor = '#16a34a';
-document.getElementById('qTitle').textContent = '✅ ЯВНЫХ ПРИЗНАКОВ НЕТ';
-document.getElementById('qDesc').textContent = 'Ситуация спокойная, но никогда не передавайте коды и пароли.';
+  qy += y; qi++;
+  if (qi < 4) { rndQ(); return; }
+  document.getElementById('qBox').style.display = 'none';
+  document.getElementById('qRes').style.display = 'block';
+  var al = document.getElementById('qAlrt');
+  if (qy >= 2) {
+    al.style.background = '#fef2f2'; al.style.color = '#b91c1c'; al.style.borderColor = '#dc2626';
+    document.getElementById('qTitle').textContent = '🚨 ЭТО МОШЕННИКИ (99%)';
+    document.getElementById('qDesc').textContent = 'Совпало ' + qy + ' из 4 признаков обмана. Немедленно кладите трубку!';
+  } else if (qy === 1) {
+    al.style.background = '#fff7ed'; al.style.color = '#9a3412'; al.style.borderColor = '#ea580c';
+    document.getElementById('qTitle').textContent = '⚠️ БУДЬТЕ ОСТОРОЖНЫ';
+    document.getElementById('qDesc').textContent = 'Есть 1 тревожный признак. Возьмите паузу и позвоните по официальному номеру.';
+  } else {
+    al.style.background = '#f0fdf4'; al.style.color = '#166534'; al.style.borderColor = '#16a34a';
+    document.getElementById('qTitle').textContent = '✅ ЯВНЫХ ПРИЗНАКОВ НЕТ';
+    document.getElementById('qDesc').textContent = 'Ситуация спокойная, но никогда не передавайте коды и пароли.';
+  }
 }
-}
+
 document.getElementById('qYes').onclick = function() { ansQ(1); };
 document.getElementById('qNo').onclick = function() { ansQ(0); };
+
 document.getElementById('btnMkDoc').onclick = function() {
-var v = function(id) { return document.getElementById(id).value.trim() || '[заполнить]'; };
-document.getElementById('dTxt').value = 'В Отдел полиции МВД России\nот ' + v('f1') +
-'\nпроживающего(ей): ' + v('f2') + '\n\nЗАЯВЛЕНИЕ О МОШЕННИЧЕСТВЕ\n\n' +
-v('f3') + ' неустановленные лица путем обмана похитили у меня ' + v('f4') + ' руб.\n' +
-'Обстоятельства: ' + v('f5') + '.\n\nПрошу провести проверку по ст. 141 УПК РФ и привлечь виновных по ст. 159 УК РФ. ' +
-'Об ответственности по ст. 306 УК РФ предупрежден(а).\n\nДата: __________ Подпись: __________ / ' + v('f1') + ' /';
-document.getElementById('dRes').style.display = 'block';
+  var v = function(id) { return document.getElementById(id).value.trim() || '[заполнить]'; };
+  document.getElementById('dTxt').value = 'В Отдел полиции МВД России\nот ' + v('f1') +
+    '\nпроживающего(ей): ' + v('f2') + '\n\nЗАЯВЛЕНИЕ О МОШЕННИЧЕСТВЕ\n\n' +
+    v('f3') + ' неустановленные лица путем обмана похитили у меня ' + v('f4') + ' руб.\n' +
+    'Обстоятельства: ' + v('f5') + '.\n\nПрошу провести проверку по ст. 141 УПК РФ и привлечь виновных по ст. 159 УК РФ. ' +
+    'Об ответственности по ст. 306 УК РФ предупрежден(а).\n\nДата: __________ Подпись: __________ / ' + v('f1') + ' /';
+  document.getElementById('dRes').style.display = 'block';
 };
+
 document.getElementById('btnCpDoc').onclick = function() {
-var t = document.getElementById('dTxt');
-t.select();
-navigator.clipboard.writeText(t.value);
-alert('Текст скопирован!');
+  var t = document.getElementById('dTxt');
+  t.select();
+  navigator.clipboard.writeText(t.value);
+  alert('Текст скопирован!');
 };
+
 document.getElementById('btnShare').onclick = function() {
-if (navigator.share) navigator.share({ title: 'Стоп-Обман', url: location.href });
-else { navigator.clipboard.writeText(location.href); alert('Ссылка скопирована!'); }
+  if (navigator.share) navigator.share({ title: 'Стоп-Обман', url: location.href });
+  else { navigator.clipboard.writeText(location.href); alert('Ссылка скопирована!'); }
 };
+
 function sosLoad() {
-var n = localStorage.getItem('sn'), p = localStorage.getItem('sp');
-var b = document.getElementById('sosBtn'), e = document.getElementById('sosEd');
-if (n && p) { b.textContent = '📞 Позвонить: ' + n; b.style.background = '#16a34a'; e.style.display = 'inline-block'; }
-else { b.textContent = 'Настроить звонок близкому'; b.style.background = '#ea580c'; e.style.display = 'none'; }
+  var n = localStorage.getItem('sn'), p = localStorage.getItem('sp');
+  var b = document.getElementById('sosBtn'), e = document.getElementById('sosEd');
+  if (n && p) { b.textContent = '📞 Позвонить: ' + n; b.style.background = '#16a34a'; e.style.display = 'inline-block'; }
+  else { b.textContent = 'Настроить звонок близкому'; b.style.background = '#ea580c'; e.style.display = 'none'; }
 }
 function sosSet() {
-var n = prompt('Имя близкого (Сын, Жена, Друг):'); if (!n) return;
-var p = prompt('Номер телефона (+7...):'); if (!p) return;
-localStorage.setItem('sn', n); localStorage.setItem('sp', p); sosLoad();
+  var n = prompt('Имя близкого (Сын, Жена, Друг):'); if (!n) return;
+  var p = prompt('Номер телефона (+7...):'); if (!p) return;
+  localStorage.setItem('sn', n); localStorage.setItem('sp', p); sosLoad();
 }
 document.getElementById('sosBtn').onclick = function() {
-var p = localStorage.getItem('sp');
-if (p) location.href = 'tel:' + p; else sosSet();
+  var p = localStorage.getItem('sp');
+  if (p) location.href = 'tel:' + p; else sosSet();
 };
 document.getElementById('sosEd').onclick = sosSet;
 sosLoad();
+</script>
+</body>
+</html>
+
+
