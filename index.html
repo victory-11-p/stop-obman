@@ -46,7 +46,7 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 <div id="home" class="scr act">
   <div class="top">
     <span class="badge">● Работает офлайн</span>
-    <button type="button" class="sh-btn" onclick="shareApp()">📤 Поделиться</button>
+    <button type="button" class="sh-btn" id="btnShare">📤 Поделиться</button>
   </div>
   <div class="hdr">
     <h1>Стоп-Обман: Защита 24/7</h1>
@@ -55,11 +55,11 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 
   <div class="sos">
     <div class="sos-t">🛑 Сомневаетесь? Посоветуйтесь с близким</div>
-    <button type="button" class="btn" id="sosBtn" onclick="sosClick()">Настроить звонок близкому</button>
-    <button type="button" class="edit" id="sosEd" style="display:none" onclick="sosSet()">Изменить контакт</button>
+    <button type="button" class="btn" id="sosBtn">Настроить звонок близкому</button>
+    <button type="button" class="edit" id="sosEd" style="display:none">Изменить контакт</button>
   </div>
 
-  <div class="qban" onclick="startQ()">
+  <div class="qban" id="btnQuiz">
     <div>
       <b style="font-size:15.5px">🔍 Тест: развод или нет? (15 сек)</b>
       <div style="font-size:12px;opacity:.85">4 вопроса «Да/Нет» для оценки риска</div>
@@ -69,15 +69,15 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 
   <div class="sec">1. Острые ситуации (звонки, коды, ссылки)</div>
   <div class="grid">
-    <button type="button" class="card" onclick="openItem('call')">
+    <button type="button" class="card" data-open="call">
       <div class="ico">📞</div>
       <div><div class="ct">Звонят из Банка / МВД / ФСБ / Госуслуг</div><div class="cd">Пугают кредитом, взломом или требуют «безопасный счет»</div></div>
     </button>
-    <button type="button" class="card" onclick="openItem('code')">
+    <button type="button" class="card" data-open="code">
       <div class="ico">💬</div>
       <div><div class="ct">Просят код из СМС или пуш-уведомления</div><div class="cd">«Курьер», «домофон», «почта», «поликлиника» или «оператор»</div></div>
     </button>
-    <button type="button" class="card" onclick="openItem('link')">
+    <button type="button" class="card" data-open="link">
       <div class="ico">🔗</div>
       <div><div class="ct">Прислали ссылку, файл или просят в долг</div><div class="cd">«Это ты на фото?», голосовое/видео от друга или файл .apk</div></div>
     </button>
@@ -85,15 +85,15 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 
   <div class="sec">2. Деньги, сделки, крипта и наличные</div>
   <div class="grid">
-    <button type="button" class="card" onclick="openItem('inv')">
+    <button type="button" class="card" data-open="inv">
       <div class="ico">📈</div>
       <div><div class="ct">Предлагают заработок, инвестиции или сделку</div><div class="cd">Авито/Юла доставка, криптобиржи, «подработка на лайках»</div></div>
     </button>
-    <button type="button" class="card" onclick="openItem('cash')">
+    <button type="button" class="card" data-open="cash">
       <div class="ico">💼</div>
       <div><div class="ct">Просят снять наличные, продать авто или жилье</div><div class="cd">Передача денег курьеру, «декларирование» или «гостайна»</div></div>
     </button>
-    <button type="button" class="card" onclick="openItem('cryp')">
+    <button type="button" class="card" data-open="cryp">
       <div class="ico">⚖️</div>
       <div><div class="ct">Пришли чужие деньги или заблокировали карту</div><div class="cd">Памятка по «треугольникам» P2P, дропам и базе ЦБ (161-ФЗ)</div></div>
     </button>
@@ -101,15 +101,15 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 
   <div class="sec">3. Помощь пострадавшим и инструменты</div>
   <div class="grid">
-    <button type="button" class="card" onclick="openItem('stol')" style="border-color:#fecaca;background:#fef2f2">
+    <button type="button" class="card" data-open="stol" style="border-color:#fecaca;background:#fef2f2">
       <div class="ico">🚨</div>
       <div><div class="ct" style="color:var(--danger)">Я уже перевёл деньги или назвал код!</div><div class="cd">Чек-лист спасения средств в первые 15 минут</div></div>
     </button>
-    <button type="button" class="card" onclick="openItem('doc')">
+    <button type="button" class="card" data-open="doc">
       <div class="ico">📝</div>
       <div><div class="ct">Генератор заявления в полицию / банк</div><div class="cd">Создайте готовый текст обращения за 1 минуту</div></div>
     </button>
-    <button type="button" class="card" onclick="openItem('tool')">
+    <button type="button" class="card" data-open="tool">
       <div class="ico">🧰</div>
       <div><div class="ct">Проверить брокера / сайт и самозапрет</div><div class="cd">Официальные базы ЦБ РФ, антивирусы и защита от кредитов</div></div>
     </button>
@@ -119,7 +119,7 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
 </div>
 
 <div id="view" class="scr">
-  <button type="button" class="back" onclick="go('home')">← На главную</button>
+  <button type="button" class="back" id="btnBack">← На главную</button>
   <div class="box" id="vBox"></div>
 </div>
 
@@ -157,8 +157,9 @@ const DB = {
     t: "Инвестиции, заработок и сделки",
     a: "Никогда не переходите из Авито/Юлы в мессенджеры для оформления доставки и оплаты!",
     s: [
-      { h: "Фейковая «Безопасная сделка»", d: "Для получения оплаты за товар нужен только номер карты. Если просят CVV — это фишинг." }, { h: "Лжеброкеры и криптоинвесторы", d: "Если для вывода «прибыли» требуют оплатить налог или страховку — это мошенники." },
-{ h: "Заработок на лайках и выкупах", d: "Сначала платят 300 ₽ для доверия, затем выманивают крупные суммы за «выкуп лотов»." }
+      { h: "Фейковая «Безопасная сделка»", d: "Для получения оплаты за товар нужен только номер карты. Если просят CVV — это фишинг." },
+      { h: "Лжеброкеры и криптоинвесторы", d: "Если для вывода «прибыли» требуют оплатить налог или страховку — это мошенники." },
+      { h: "Заработок на лайках и выкупах", d: "Сначала платят 300 ₽ для доверия, затем выманивают крупные суммы за «выкуп лотов»." }
 ]
 },
 cash: {
@@ -192,7 +193,8 @@ docBtn: 1
 }
 };
 function go(id) {
-document.querySelectorAll('.scr').forEach(s => s.classList.remove('act'));
+document.getElementById('home').classList.remove('act');
+document.getElementById('view').classList.remove('act');
 document.getElementById(id).classList.add('act');
 window.scrollTo(0, 0);
 }
@@ -209,6 +211,8 @@ b.innerHTML = 'Заявление в полицию' +
 'Сформировать текст' +
 '' +
 '📋 Скопировать текст';
+document.getElementById('btnMkDoc').onclick = mkDoc;
+document.getElementById('btnCpDoc').onclick = cpDoc;
 } else if (id === 'tool') {
 b.innerHTML = 'Проверка и профилактика' +
 '🔒 Самозапрет на кредиты (Госуслуги)Запрет на оформление кредитов на ваше имя' +
@@ -218,7 +222,7 @@ b.innerHTML = 'Проверка и профилактика' +
 } else {
 const it = DB[id];
 let html = '' + it.t + '' + it.a + '';
-it.s.forEach((st, i) => {
+it.s.forEach(function(st, i) {
 const bg = id === 'stol' ? 'background:var(--danger)' : '';
 html += '' + (i + 1) + '' +
 '' + st.h + '' + st.d + '';
@@ -231,11 +235,12 @@ if (it.docBtn) {
 html += '📝 Составить заявление';
 }
 b.innerHTML = html;
+if (it.docBtn) document.getElementById('btnGoDoc').onclick = function() { openItem('doc'); };
 }
 go('view');
 }
 function mkDoc() {
-const v = i => document.getElementById(i).value.trim() || '[заполнить]';
+const v = function(i) { return document.getElementById(i).value.trim() || '[заполнить]'; };
 document.getElementById('dTxt').value = 'В Отдел полиции МВД России\nот ' + v('f1') +
 '\nпроживающего(ей): ' + v('f2') + '\n\nЗАЯВЛЕНИЕ О МОШЕННИЧЕСТВЕ\n\n' +
 v('f3') + ' неустановленные лица путем обмана похитили у меня ' + v('f4') + ' руб.\n' +
@@ -263,6 +268,8 @@ document.getElementById('vBox').innerHTML =
 '' + QS[qi] + '' +
 '✅ Да, так и есть' +
 '❌ Нет';
+document.getElementById('qYes').onclick = function() { ansQ(1); };
+document.getElementById('qNo').onclick = function() { ansQ(0); };
 }
 function ansQ(y) {
 qy += y; qi++;
@@ -273,11 +280,17 @@ const desc = qy >= 2 ? 'Совпало ' + qy + ' из 4 признаков об
 document.getElementById('vBox').innerHTML = '' + title + '' +
 '' + desc + '' +
 'Вернуться к инструкциям';
+document.getElementById('qHome').onclick = function() { go('home'); };
 }
-function shareApp() {
+document.querySelectorAll('.card').forEach(function(btn) {
+btn.onclick = function() { openItem(btn.getAttribute('data-open')); };
+});
+document.getElementById('btnQuiz').onclick = startQ;
+document.getElementById('btnBack').onclick = function() { go('home'); };
+document.getElementById('btnShare').onclick = function() {
 if (navigator.share) navigator.share({ title: 'Стоп-Обман', url: location.href });
 else { navigator.clipboard.writeText(location.href); alert('Ссылка скопирована!'); }
-}
+};
 function sosLoad() {
 const n = localStorage.getItem('sn'), p = localStorage.getItem('sp');
 const b = document.getElementById('sosBtn'), e = document.getElementById('sosEd');
@@ -289,8 +302,9 @@ const n = prompt('Имя близкого (Сын, Жена, Друг):'); if (!
 const p = prompt('Номер телефона (+7...):'); if (!p) return;
 localStorage.setItem('sn', n); localStorage.setItem('sp', p); sosLoad();
 }
-function sosClick() {
+document.getElementById('sosBtn').onclick = function() {
 const p = localStorage.getItem('sp');
 if (p) location.href = 'tel:' + p; else sosSet();
-}
-sosLoad(); 
+};
+document.getElementById('sosEd').onclick = sosSet;
+sosLoad();
