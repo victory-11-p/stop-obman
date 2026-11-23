@@ -5,7 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>СТОП-ОБМАН | Защита 24/7</title>
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<script>
+  (function(){
+    var c=document.createElement('canvas');c.width=c.height=192;
+    var x=c.getContext('2d');
+    x.fillStyle='#2563eb';x.beginPath();x.roundRect(0,0,192,192,40);x.fill();
+    x.fillStyle='#fff';x.beginPath();x.moveTo(96,32);x.lineTo(148,55);x.lineTo(148,96);x.quadraticCurveTo(148,136,96,160);x.quadraticCurveTo(44,136,44,96);x.lineTo(44,55);x.closePath();x.fill();
+    x.strokeStyle='#16a34a';x.lineWidth=14;x.lineCap='round';x.lineJoin='round';x.beginPath();x.moveTo(74,98);x.lineTo(90,114);x.lineTo(120,82);x.stroke();
+    var u=c.toDataURL('image/png');
+    ['icon','apple-touch-icon'].forEach(function(r){var l=document.createElement('link');l.rel=r;l.href=u;document.head.appendChild(l);});
+  })();
+</script>
+
 <meta name="theme-color" content="#2563eb">
 
 <style>
@@ -151,7 +162,7 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
     <div class="tcard">
       <b>🏦 Черный список компаний Банка России</b>
       <div class="cd" style="margin-top:4px"><i>(Нужен интернет)</i> Введите название компании или сайт. Если проект в списке — это 100% нелегалы и пирамида.</div>
-      <a href="https://cbr.ru" target="_blank" rel="noopener noreferrer" class="tlink">Открыть список ЦБ РФ →</a>
+      <a href="https://cbr.ru/finorg/" target="_blank" rel="noopener noreferrer" class="tlink">Открыть список ЦБ РФ →</a>
     </div>
     <div class="tcard">
       <b>🌐 Проверка возраста сайта (Whois)</b>
