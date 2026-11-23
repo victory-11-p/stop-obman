@@ -70,6 +70,8 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
     <button type="button" class="card" data-go="s_stol" style="border-color:#fecaca;background:#fef2f2"><div class="ico">🚨</div><div><div class="ct" style="color:var(--danger)">Я уже перевёл деньги или назвал код!</div><div class="cd">Чек-лист спасения средств в первые 15 минут</div></div></button>
     <button type="button" class="card" data-go="s_doc"><div class="ico">📝</div><div><div class="ct">Генератор заявления в полицию + инструкция</div><div class="cd">Готовый бланк и объяснение, как и куда его подать</div></div></button>
     <button type="button" class="card" data-go="s_tool"><div class="ico">🧰</div><div><div class="ct">Проверить брокера / сайт и самозапрет</div><div class="cd">База ЦБ РФ, проверка ссылок в РФ и защита от кредитов</div></div></button>
+    <button type="button" class="card" data-go="s_inst"><div class="ico">📲</div><div><div class="ct">Установить на телефон и поделиться</div><div class="cd">Как добавить иконку на экран и отправить близким</div></div></button>
+
   </div>
   <div class="ftr">Работает автономно без интернета • Данные никуда не передаются</div>
 </div>
@@ -163,6 +165,30 @@ h1{font-size:24px;font-weight:800;margin-bottom:4px}
     </div>
   </div>
 </div>
+  
+<div id="s_inst" class="scr">
+  <button type="button" class="back" data-go="home">← На главную</button>
+  <div class="box">
+    <h2 style="margin-bottom:10px">Установка и помощь близким</h2>
+    <div class="info" style="margin-top:0;margin-bottom:14px">Поставьте «Стоп-Обман» как обычное приложение на рабочий стол — оно будет открываться в один клик даже в метро и без интернета.</div>
+    
+    <div class="tcard">
+      <b>🤖 На Android (Chrome / Яндекс Браузер)</b>
+      <div class="cd" style="margin-top:4px">1. Нажмите три точки <b>⋮</b> в правом верхнем (или нижнем) углу браузера.<br>2. Выберите <b>«Добавить на главный экран»</b> или <b>«Установить приложение»</b>.<br>3. Нажмите <b>«Добавить»</b> — иконка синего щита появится на экране.</div>
+    </div>
+
+    <div class="tcard">
+      <b>🍏 На iPhone (только через браузер Safari)</b>
+      <div class="cd" style="margin-top:4px">1. Нажмите кнопку <b>«Поделиться»</b> (квадрат со стрелкой вверх внизу экрана).<br>2. Пролистайте меню вниз и нажмите <b>«На экран „Домой“»</b>.<br>3. Нажмите <b>«Добавить»</b> в правом верхнем углу.</div>
+    </div>
+
+    <div class="tcard" style="background:#f0fdf4;border-color:#bbf7d0">
+      <b style="color:#166534">❤️ Защитите родителей и близких</b>
+      <div class="cd" style="margin-top:4px">Перешлите готовое приглашение в семейный чат — одним нажатием текст скопируется в буфер обмена.</div>
+      <button type="button" class="btn" style="background:var(--ok);margin-top:10px;padding:11px" onclick="copyPromo()">📋 Скопировать памятку для чата</button>
+    </div>
+  </div>
+</div>
 
 <script>
 function go(id){var l=document.querySelectorAll('.scr');for(var i=0;i<l.length;i++)l[i].classList.remove('act');document.getElementById(id).classList.add('act');window.scrollTo(0,0)}
@@ -196,6 +222,11 @@ function scanUrl(){
   out.style.display='block';
   if(r.length){out.style.background='#fef2f2';out.style.color='#b91c1c';out.style.border='1px solid #fecaca';out.innerHTML='<b>❌ Обнаружены признаки обмана:</b><ul style="margin:6px 0 0 18px;padding:0">'+r.map(function(x){return'<li style="margin-bottom:5px">'+x+'</li>'}).join('')+'</ul>';}
   else{out.style.background='#f0fdf4';out.style.color='#166534';out.style.border='1px solid #bbf7d0';out.innerHTML='<b>✅ Явных признаков подделки не найдено.</b><br>Но всё равно не вводите коды из СМС и проверьте возраст сайта через Whois ниже.';}
+}
+function copyPromo(){
+  var txt='🛡️ Бесплатный помощник «Стоп-Обман» для защиты от мошенников (работает даже без интернета):\n👉 '+location.href+'\n\nВнутри: кнопка экстренного звонка близкому, тест «Развод или нет?» за 15 сек, проверка ссылок/файлов и шаблон заявления в полицию.\n\n📲 Чтобы поставить иконку на главный экран телефона:\n• Android: три точки ⋮ → «Добавить на главный экран»\n• iPhone (Safari): «Поделиться» → «На экран „Домой“»';
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){alert('Текст скопирован! Вставьте его в WhatsApp или Telegram.');});}
+  else{prompt('Скопируйте текст вручную:',txt);}
 }
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
 </script>
